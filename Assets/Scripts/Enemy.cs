@@ -8,18 +8,22 @@ public class Enemy : MonoBehaviour
     public int forwardSpeed = 0;
     public int turnSpeed = 0;
 
-    public PlayerController player;
     public float timeBetweenShots = 2;
     public BulletEnemy bulletEnemy;
 
-    private SpriteRenderer spriteRenderer;
+    public Sprite spriteN;
+    public Sprite spriteW;
+    protected SpriteRenderer spriteRenderer;
 
+    protected PlayerController player;
     private int currentHealth;
-    private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    protected Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     // Start is called before the first frame update
     void Start()
     {
+        player = Globals.player;
+
         // Set health to max
         currentHealth = maxHealth;
 
@@ -27,7 +31,7 @@ public class Enemy : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        //Invoke("Shoot", timeBetweenShots);
+        Invoke("Shoot", timeBetweenShots);
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -64,6 +68,21 @@ public class Enemy : MonoBehaviour
         if (rotation > 180)
         {
             rotation -= 360;
+        }
+        else if (rotation < -180)
+        {
+            rotation += 360;
+        }
+
+        int spriteIndex = (int)Mathf.Abs(Mathf.Round(rotation / 90f));
+        switch (spriteIndex)
+        {
+            case 1:
+                spriteRenderer.sprite = spriteW;
+                break;
+            default:
+                spriteRenderer.sprite = spriteN;
+                break;
         }
 
         // Flip sprite if rotation is negative

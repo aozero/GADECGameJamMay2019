@@ -120,10 +120,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c7b141177cf27048850dadcad2dbbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3003288365835605751, guid: 78701fe8387ce3e45ab6458e263675b4, type: 3}
+  maxHealth: 1
+  forwardSpeed: 0
+  turnSpeed: 0
+  player: {fileID: 1645154015636709583, guid: 111d54ae387dd664d846e7bbc284baf5, type: 3}
   timeBetweenShots: 2
   bulletEnemy: {fileID: -5715644361110232084, guid: c9bff01b996557d43876c7e0dff3279c,
     type: 3}
+  spriteN: {fileID: 0}
+  spriteW: {fileID: 0}
 --- !u!50 &8753364665713011261
 Rigidbody2D:
   serializedVersion: 4
