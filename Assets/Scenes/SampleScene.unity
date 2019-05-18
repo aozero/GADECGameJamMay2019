@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 7029680708928050957, guid: e483d3789237ce341b583a65200eac63,
         type: 3}
       propertyPath: m_Value
-      value: 2
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7029680709265654993, guid: e483d3789237ce341b583a65200eac63,
         type: 3}
@@ -447,6 +447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxBoost
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3003288365835605751, guid: 78701fe8387ce3e45ab6458e263675b4,
+        type: 3}
+      propertyPath: forwardSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3003288365835605748, guid: 78701fe8387ce3e45ab6458e263675b4,
         type: 3}
