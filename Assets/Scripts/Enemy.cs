@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 1;
     public int forwardSpeed = 0;
     public int turnSpeed = 0;
+    public int ramDamage = 0;
+    public int ramKnockback = 0;
 
     public float timeBetweenShots = 2;
     public BulletEnemy bulletEnemy;
@@ -31,7 +33,10 @@ public class Enemy : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        Invoke("Shoot", timeBetweenShots);
+        if (timeBetweenShots > 0)
+        {
+            Invoke("Shoot", timeBetweenShots);
+        }
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -87,6 +92,21 @@ public class Enemy : MonoBehaviour
 
         // Flip sprite if rotation is negative
         spriteRenderer.flipX = rotation < 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController hitObject = collision.gameObject.GetComponent<PlayerController>();
+
+        if (hitObject != null)
+        {
+            hitObject.OnHit(ramDamage);
+
+            Vector2 collisionDirection = player.Position - body.position;
+            collisionDirection.Normalize();
+            body.AddForce(2 * ramKnockback * -collisionDirection);
+            hitObject.body.AddForce(ramKnockback * collisionDirection);
+        }
     }
 
     void Shoot()

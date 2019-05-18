@@ -96,8 +96,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_LinearDrag: 2
+  m_AngularDrag: 2
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   maxBoost: 200
   boostSlider: {fileID: 0}
   forwardSpeed: 1
-  turnSpeed: 2
+  turnSpeed: 0.3
   bulletPlayer: {fileID: 8494028868648538555, guid: f22a128801e466c4e9c982dee37e9ba9,
     type: 3}
   spriteN: {fileID: 21300000, guid: 691bafb363430e84890961e31dd985b0, type: 3}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 4}
+  m_Size: {x: 1, y: 1.7}
   m_EdgeRadius: 0
 --- !u!1 &1645154015961198833
 GameObject:

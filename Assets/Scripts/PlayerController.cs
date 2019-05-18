@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     private float waitTime = 2.0f;
     private float timer = 0.0f;
     
-    private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+    public Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     public Vector2 Position
     {
