@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: tile1
+  m_Name: beach_corner_W
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: b787b882a96fb66b09a5b517a58893aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9b9a53fe051f094b801f2fcc2ab30c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
