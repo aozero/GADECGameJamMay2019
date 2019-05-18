@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        Globals.player = this;
+
         // Set health and boost to max
         currentHealth = maxHealth;
         currentBoost = maxBoost;
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
         // Add torque to turn the player
         body.AddTorque(-moveHorizontal * turnSpeed);
         RotateShip(body.rotation);
-   
+
         // Add force to move the player forward
         body.AddForce(transform.up * moveVertical * forwardSpeed);
     }
