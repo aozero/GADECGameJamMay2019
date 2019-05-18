@@ -28,7 +28,12 @@ public class PlayerController : MonoBehaviour
     {
         get
         {
-            return body.position;
+            if (body != null) {
+                return body.position;
+            } else
+            {
+                return new Vector2(0, 0);
+            }
         }
     }
 
@@ -80,10 +85,12 @@ public class PlayerController : MonoBehaviour
         if (rotation > 180)
         {
             rotation -= 360;
+        } else if (rotation < -180)
+        {
+            rotation += 360;
         }
 
         int spriteIndex = (int) Mathf.Abs(Mathf.Round(rotation / 45f));
-
         switch(spriteIndex)
         {
             case 1:
@@ -102,8 +109,6 @@ public class PlayerController : MonoBehaviour
 
         // Flip sprite if rotation is negative
         spriteRenderer.flipX = rotation < 0;
-
-        print(spriteRenderer.sprite);
     }
 
     public void OnHit(int damage)
