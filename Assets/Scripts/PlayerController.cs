@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         
         if (Input.GetKey(KeyCode.LeftShift) && boostSlider.value > 0){
-            forwardSpeed = 6.0f;
+            forwardSpeed = 13.0f;
             currentBoost -= 4;
             boostSlider.value = currentBoost;
         } else {
