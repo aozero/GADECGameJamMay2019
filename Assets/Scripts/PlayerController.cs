@@ -36,13 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // Fire a bullet towards the mouse
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 bulletDirection = new Vector2(mousePos[0], mousePos[1]) - body.position;
-            bulletDirection.Normalize();
-
-            BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
-            newBullet.Direction = bulletDirection;
+            // Fire bullet from player
+            Fire();
         }
     }
 
@@ -68,4 +63,15 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         healthSlider.value = currentHealth;
     }
+}
+
+function Fire()
+{
+    // Fire a bullet towards the mouse
+    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    Vector2 bulletDirection = new Vector2(mousePos[0], mousePos[1]) - body.position;
+    bulletDirection.Normalize();
+
+    BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
+    newBullet.Direction = bulletDirection;
 }
