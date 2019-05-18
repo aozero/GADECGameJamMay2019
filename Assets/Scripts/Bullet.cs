@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    public float speed = 1;    // Speed bullet travels
-    public int duration = 5;
+    public float speed;    // Speed bullet travels
+    public int duration;
 
     private Vector2 direction; // Direction bullet is going
 
@@ -33,19 +33,7 @@ public class PlayerBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Enemy hitObject = collision.gameObject.GetComponent<Enemy>();
-
-        print(hitObject);
-
-        if (hitObject != null)
-        {
-            hitObject.OnHit();
-        }
-        Destroy(gameObject);
-    }
 }

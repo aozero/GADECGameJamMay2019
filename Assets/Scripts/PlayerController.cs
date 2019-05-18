@@ -6,9 +6,17 @@ public class PlayerController : MonoBehaviour
 {
     public float forwardSpeed;    // How fast the player can move forward
     public float turnSpeed;       // How fast the player can turn
-    public PlayerBullet playerBullet;
+    public BulletPlayer bulletPlayer;
 
     private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
+
+    public Vector2 Position
+    {
+        get
+        {
+            return body.position;
+        }
+    }
 
     // Use this for initialization
     void Start()
@@ -26,7 +34,7 @@ public class PlayerController : MonoBehaviour
             Vector2 bulletDirection = new Vector2(mousePos[0], mousePos[1]) - body.position;
             bulletDirection.Normalize();
 
-            PlayerBullet newBullet = Instantiate(playerBullet, body.position, Quaternion.identity);
+            BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
             newBullet.Direction = bulletDirection;
         }
     }
@@ -46,5 +54,11 @@ public class PlayerController : MonoBehaviour
    
         // Add force to move the player forward
         body.AddForce(transform.up * moveVertical * forwardSpeed);
+    }
+
+    public void OnHit()
+    {
+        // Doesn't do anything yet
+        return;
     }
 }
