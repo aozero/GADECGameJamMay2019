@@ -27,12 +27,25 @@ public class PlayerBullet : MonoBehaviour
     void Start()
     {
         // Bullet will be destroyed after duration seconds
-        Destroy(this, duration);
+        Destroy(gameObject, duration);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Enemy hitObject = collision.gameObject.GetComponent<Enemy>();
+
+        print(hitObject);
+
+        if (hitObject != null)
+        {
+            hitObject.OnHit();
+        }
+        Destroy(gameObject);
     }
 }
