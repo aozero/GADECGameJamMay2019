@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 10;
     public Slider healthSlider;
     
+    public int maxFuel = 10000;
+    public Slider fuelSlider;
+    
     public int maxBoost = 200;
     public Slider boostSlider;
 
@@ -22,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private int currentHealth;
+    private int currentFuel;
     private int currentBoost;
     
     private float waitTime = 2.0f;
@@ -46,8 +50,9 @@ public class PlayerController : MonoBehaviour
     {
         Globals.player = this;
 
-        // Set health and boost to max
+        // Set health, fuel, and boost to max
         currentHealth = maxHealth;
+        currentFuel = maxFuel;
         currentBoost = maxBoost;
 
         //Get and store a reference to the Rigidbody2D component so that we can access it.
@@ -66,6 +71,7 @@ public class PlayerController : MonoBehaviour
             timer = 0.0f;
         }
         
+        // Only boost if you have fuel, only replenish if not trying to use it
         if (Input.GetKey(KeyCode.LeftShift) && boostSlider.value > 0){
             forwardSpeed = 13.0f;
             currentBoost -= 4;
@@ -78,6 +84,13 @@ public class PlayerController : MonoBehaviour
         {
             currentBoost += 1;
             boostSlider.value = currentBoost;
+        }
+        
+        // Fuel depletes when moving
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
+            currentFuel -= 1;
+            fuelSlider.value = currentFuel;
         }
         
     }

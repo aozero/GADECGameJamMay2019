@@ -292,6 +292,16 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.96862745
       objectReference: {fileID: 0}
+    - target: {fileID: 7029680708928050957, guid: e483d3789237ce341b583a65200eac63,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029680708928050957, guid: e483d3789237ce341b583a65200eac63,
+        type: 3}
+      propertyPath: m_Value
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 7029680709265654993, guid: e483d3789237ce341b583a65200eac63,
         type: 3}
       propertyPath: m_Color.r
@@ -515,6 +525,11 @@ PrefabInstance:
       propertyPath: boostSlider
       value: 
       objectReference: {fileID: 1941828103}
+    - target: {fileID: 1645154015636709583, guid: 111d54ae387dd664d846e7bbc284baf5,
+        type: 3}
+      propertyPath: fuelSlider
+      value: 
+      objectReference: {fileID: 1485985830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111d54ae387dd664d846e7bbc284baf5, type: 3}
 --- !u!224 &1322704886 stripped
@@ -523,6 +538,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 9218855875554846244}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485985830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7029680708928050957, guid: e483d3789237ce341b583a65200eac63,
+    type: 3}
+  m_PrefabInstance: {fileID: 249535541}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1764921395 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1645154015636709583, guid: 111d54ae387dd664d846e7bbc284baf5,
