@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private float waitTime = 2.0f;
+    private float timer = 0.0f;
+    
     public int maxHealth = 10;
     public Slider healthSlider;
 
@@ -34,10 +37,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        timer += Time.deltaTime;
+        
+        if (Input.GetMouseButtonDown(0) && timer > waitTime)
         {
-            // Fire bullet from player
+            // Fire a bullet towards the mouse
             Fire();
+            timer = 0.0f;
         }
     }
 
@@ -63,15 +69,17 @@ public class PlayerController : MonoBehaviour
         currentHealth -= damage;
         healthSlider.value = currentHealth;
     }
-}
-
-function Fire()
-{
+    
     // Fire a bullet towards the mouse
-    Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    Vector2 bulletDirection = new Vector2(mousePos[0], mousePos[1]) - body.position;
-    bulletDirection.Normalize();
+    void Fire()
+    {
+        allowFire = false;
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 bulletDirection = new Vector2(mousePos[0], mousePos[1]) - body.position;
+        bulletDirection.Normalize();
 
-    BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
-    newBullet.Direction = bulletDirection;
+        BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
+        newBullet.Direction = bulletDirection;
+        allowFire = true;
+    }
 }
