@@ -10,7 +10,7 @@ public class BulletPlayer : Bullet
 
         if (hitObject != null)
         {
-            hitObject.OnHit();
+            hitObject.OnHit(damage);
 
             Destroy(gameObject);
         }

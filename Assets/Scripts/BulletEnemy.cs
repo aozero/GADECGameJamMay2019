@@ -10,7 +10,7 @@ public class BulletEnemy : Bullet
 
         if (hitObject != null)
         {
-            hitObject.OnHit();
+            hitObject.OnHit(damage);
 
             Destroy(gameObject);
         }

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed;    // Speed bullet travels
-    public int duration;
+    public float speed = 2;    // Speed bullet travels
+    public int duration = 5;
+    public int damage = 1;
 
     private Vector2 direction; // Direction bullet is going
 

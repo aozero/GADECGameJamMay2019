@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         Invoke("Shoot", timeBetweenShots);
     }
 
-    public void OnHit()
+    public void OnHit(int damage)
     {
         Destroy(gameObject);
     }

@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public int maxHealth = 10;
+    public Slider healthSlider;
+
     public float forwardSpeed;    // How fast the player can move forward
     public float turnSpeed;       // How fast the player can turn
     public BulletPlayer bulletPlayer;
 
+    private int currentHealth;
     private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     public Vector2 Position
@@ -18,9 +23,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
+        // Set health to max
+        currentHealth = maxHealth;
+
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
     }
@@ -56,9 +63,9 @@ public class PlayerController : MonoBehaviour
         body.AddForce(transform.up * moveVertical * forwardSpeed);
     }
 
-    public void OnHit()
+    public void OnHit(int damage)
     {
-        // Doesn't do anything yet
-        return;
+        currentHealth -= damage;
+        healthSlider.value = currentHealth;
     }
 }
