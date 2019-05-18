@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int maxHealth = 1;
+
     public PlayerController player;
     public float timeBetweenShots = 2;
     public BulletEnemy bulletEnemy;
 
+    private int currentHealth;
     private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     // Start is called before the first frame update
     void Start()
     {
+        // Set health to max
+        currentHealth = maxHealth;
+
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
 
@@ -38,6 +44,10 @@ public class Enemy : MonoBehaviour
 
     public void OnHit(int damage)
     {
-        Destroy(gameObject);
+        currentHealth -= damage;
+
+        if (currentHealth <= 0) {
+            Destroy(gameObject);
+        }
     }
 }
