@@ -120,6 +120,11 @@ PrefabInstance:
       propertyPath: ramDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7334315692790222181, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
+        type: 3}
+      propertyPath: maxHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7334315692790222178, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
       propertyPath: m_Sprite
