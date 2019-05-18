@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 1;
+    public int forwardSpeed = 0;
+    public int turnSpeed = 0;
 
     public PlayerController player;
     public float timeBetweenShots = 2;
@@ -22,13 +24,32 @@ public class Enemy : MonoBehaviour
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
 
-        Invoke("Shoot", timeBetweenShots);
+        //Invoke("Shoot", timeBetweenShots);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-      
+    //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
+    void FixedUpdate()
+    { 
+        // https://wiki.unity3d.com/index.php/TorqueLookRotation
+        Vector2 targetDelta = player.Position - body.position;
+
+        // Turn towards player until they are facing them
+        //get the angle between transform.up and target delta
+        float angleDiff = Vector2.SignedAngle(transform.up, targetDelta);
+
+        if (angleDiff > 1)
+        {
+            angleDiff = 1;
+        } else if (angleDiff < -1)
+        {
+            angleDiff = -1;
+        }
+
+        // apply torque along that axis according to the magnitude of the angle.
+        body.AddTorque(angleDiff * turnSpeed);
+
+        // Add force to move forward
+        body.AddForce(transform.up * forwardSpeed);
     }
 
     void Shoot()
