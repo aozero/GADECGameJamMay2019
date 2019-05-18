@@ -73,13 +73,11 @@ public class PlayerController : MonoBehaviour
     // Fire a bullet towards the mouse
     void Fire()
     {
-        allowFire = false;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 bulletDirection = new Vector2(mousePos[0], mousePos[1]) - body.position;
         bulletDirection.Normalize();
 
         BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
         newBullet.Direction = bulletDirection;
-        allowFire = true;
     }
 }
