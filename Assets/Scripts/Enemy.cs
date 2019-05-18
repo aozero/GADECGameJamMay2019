@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public float timeBetweenShots = 2;
     public BulletEnemy bulletEnemy;
 
+    private SpriteRenderer spriteRenderer;
+
     private int currentHealth;
     private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
@@ -23,6 +25,7 @@ public class Enemy : MonoBehaviour
 
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         //Invoke("Shoot", timeBetweenShots);
     }
@@ -47,9 +50,24 @@ public class Enemy : MonoBehaviour
 
         // apply torque along that axis according to the magnitude of the angle.
         body.AddTorque(angleDiff * turnSpeed);
+        RotateShip(body.rotation);
 
         // Add force to move forward
         body.AddForce(transform.up * forwardSpeed);
+    }
+
+    private void RotateShip(float rotation)
+    {
+        // Keep it between -180 and 180
+        // If it is on the clockwise half of the circle, it should be negative
+        rotation = rotation % 360;
+        if (rotation > 180)
+        {
+            rotation -= 360;
+        }
+
+        // Flip sprite if rotation is negative
+        spriteRenderer.flipX = rotation < 0;
     }
 
     void Shoot()
