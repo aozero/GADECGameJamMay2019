@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    private float waitTime = 2.0f;
-    private float timer = 0.0f;
-    
     public int maxHealth = 10;
     public Slider healthSlider;
+    
+    public int maxBoost = 200;
+    public Slider boostSlider;
 
     public float forwardSpeed;    // How fast the player can move forward
     public float turnSpeed;       // How fast the player can turn
@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private int currentHealth;
+    private int currentBoost;
+    
+    private float waitTime = 2.0f;
+    private float timer = 0.0f;
+    
     private Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     public Vector2 Position
@@ -39,8 +44,9 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        // Set health to max
+        // Set health and boost to max
         currentHealth = maxHealth;
+        currentBoost = maxBoost;
 
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
@@ -57,6 +63,21 @@ public class PlayerController : MonoBehaviour
             Fire();
             timer = 0.0f;
         }
+        
+        if (Input.GetKey(KeyCode.LeftShift) && boostSlider.value > 0){
+            forwardSpeed = 6.0f;
+            currentBoost -= 4;
+            boostSlider.value = currentBoost;
+        } else {
+            forwardSpeed = 3.0f;
+        }
+        
+        if (currentBoost < maxBoost && !Input.GetKey(KeyCode.LeftShift))
+        {
+            currentBoost += 1;
+            boostSlider.value = currentBoost;
+        }
+        
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
