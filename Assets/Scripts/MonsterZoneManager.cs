@@ -38,6 +38,7 @@ public class MonsterZoneManager : MonoBehaviour
                     newZone.transform.parent = transform;
 
                     int zoneDifficulty = Mathf.Max(Mathf.Abs(x), Mathf.Abs(y));
+                    newZone.zoneDifficulty = zoneDifficulty;
                     newZone.pyramidNum = numPyramids[zoneDifficulty];
                     newZone.sirenNum = numSirens[zoneDifficulty];
                 }
