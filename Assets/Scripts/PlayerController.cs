@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private int currentBoost;
     private bool survivorsOnBoard = false;
     
-    private float waitTime = 2.0f;
+    private float waitTime = 1.0f;
     private float timer = 0.0f;
 
     public bool objectiveSet = false;
@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
         body.AddForce(transform.up * moveVertical * forwardSpeed);
     }
 
+    // Change ship sprite based on ship rotation
     private void RotateShip(float rotation)
     {
         // Keep it between -180 and 180

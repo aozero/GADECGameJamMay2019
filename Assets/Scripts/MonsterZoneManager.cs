@@ -7,6 +7,8 @@ public class MonsterZoneManager : MonoBehaviour
     // There is a grid system, where home port is (0,0) and as you go out either -1 or 1 more monsters spawn
     public Vector2 numZonesX;
     public Vector2 numZonesY;
+    // Don't spawn some zones
+    public List<Vector2> excludedZones;
 
     public float zoneSizeX = 45;
     public float zoneSizeY = 45;
@@ -26,13 +28,19 @@ public class MonsterZoneManager : MonoBehaviour
         {
             for (int y = (int) numZonesY[0]; y <= numZonesY[1]; ++y)
             {
-                Vector3 position = new Vector3(zoneSizeX * x, zoneSizeY * y, 0);
-                MonsterZone newZone = Instantiate(zonePrefab, position, Quaternion.identity);
-                newZone.transform.parent = transform;
+                Vector2 zoneCoords = new Vector2(x, y);
 
-                int zoneDifficulty = Mathf.Max(Mathf.Abs(x), Mathf.Abs(y));
-                newZone.pyramidNum = numPyramids[zoneDifficulty];
-                newZone.sirenNum = numSirens[zoneDifficulty];
+                // If zone is not excluded, create a new MonsterZone at those coordinates with difficulty based on how far away they are from the center
+                if (!excludedZones.Contains(zoneCoords))
+                {
+                    Vector3 position = new Vector3(zoneSizeX * x, zoneSizeY * y, 0);
+                    MonsterZone newZone = Instantiate(zonePrefab, position, Quaternion.identity);
+                    newZone.transform.parent = transform;
+
+                    int zoneDifficulty = Mathf.Max(Mathf.Abs(x), Mathf.Abs(y));
+                    newZone.pyramidNum = numPyramids[zoneDifficulty];
+                    newZone.sirenNum = numSirens[zoneDifficulty];
+                }
             }
         }
     }

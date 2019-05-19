@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c86d75eff4758148b2b580ca6bb852c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   duration: 5
   damage: 1
   audioSource: {fileID: 0}
   fireSound: {fileID: 0}
+  hitSound: {fileID: 0}
 --- !u!1001 &2982935270340291717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24,16 +25,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1967852718032610672, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c24ff6e23a43a33459b97ba8243ffc57, type: 3}
     - target: {fileID: 3827598948217024222, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
         type: 3}
       propertyPath: m_Name
       value: BulletPyramid
       objectReference: {fileID: 0}
+    - target: {fileID: -1967852718032610672, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c24ff6e23a43a33459b97ba8243ffc57, type: 3}
     - target: {fileID: 8253972737576880548, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
         type: 3}
       propertyPath: m_LocalPosition.x
