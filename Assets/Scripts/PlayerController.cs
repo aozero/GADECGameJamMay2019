@@ -101,6 +101,16 @@ public class PlayerController : MonoBehaviour
         {
             currentFuel -= 1;
             fuelSlider.value = currentFuel;
+
+            if (currentFuel <= 0)
+            {
+                // lose the game
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
@@ -185,9 +195,15 @@ private void OnTriggerEnter2D(Collider2D collision)
     public void OnHit(int damage)
     {
         currentHealth -= damage;
-        healthSlider.value = currentHealth;
-
         audioSource.PlayOneShot(damageSound);
+
+        if (currentHealth <= 0)
+        {
+            body.position = new Vector2(0, 0);
+            currentHealth = maxHealth;
+        }
+
+        healthSlider.value = currentHealth;
     }
     
     // Fire a bullet towards the mouse
