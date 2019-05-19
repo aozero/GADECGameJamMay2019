@@ -240,6 +240,9 @@ private void OnTriggerEnter2D(Collider2D collision)
             // No objective for now
             objectiveSet = false;
 
+            // Spawn a new wreck
+            Globals.wreckSpawner.SpawnWreck();
+
             return true;
         } 
 

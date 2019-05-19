@@ -9,11 +9,16 @@ public class WreckSpawner : MonoBehaviour
     public float minDistance; 
     public float maxDistance;
 
+    public float maxDistanceIncrease;
+    public float minDistanceIncrease;
+
     public WreckSite wreckPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
+        Globals.wreckSpawner = this;
+
         SpawnWreck();
     }
 
@@ -32,5 +37,8 @@ public class WreckSpawner : MonoBehaviour
         Vector3 position = new Vector3(xDirection * xDistance, yDirection * yDistance, 0);
 
         Instantiate(wreckPrefab, position, Quaternion.identity);
+
+        maxDistance += maxDistanceIncrease;
+        minDistance += minDistanceIncrease;
     }
 }
