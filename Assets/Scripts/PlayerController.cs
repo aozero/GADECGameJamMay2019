@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 10;
+    public AudioClip damageSound;
     public Slider healthSlider;
     
     public int maxFuel = 10000;
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float forwardSpeed;    // How fast the player can move forward
     public float turnSpeed;       // How fast the player can turn
     public BulletPlayer bulletPlayer;
-
+    
     public Sprite spriteN;
     public Sprite spriteNW;
     public Sprite spriteW;
@@ -30,7 +31,8 @@ public class PlayerController : MonoBehaviour
     
     private float waitTime = 2.0f;
     private float timer = 0.0f;
-    
+
+    private AudioSource audioSource;
     public Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
     public Vector2 Position
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -147,10 +150,38 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.flipX = rotation < 0;
     }
 
+    // Bounce away from collision
+    // Some weird bugs with this and its not that important so I gave up
+    /*
+private void OnTriggerEnter2D(Collider2D collision)
+{
+    
+
+
+    GameObject hitObject = collision.gameObject;
+
+    if (hitObject != null)
+    {
+
+
+        //Vector3 collisionDirection = hitObject.transform.position - transform.position;
+        //collisionDirection.Normalize();
+        //body.AddForce(2 * ramKnockback * -collisionDirection);
+
+
+
+        //hitObject.body.AddForce(ramKnockback * collisionDirection);
+    }
+    
+    }
+    */
+
     public void OnHit(int damage)
     {
         currentHealth -= damage;
         healthSlider.value = currentHealth;
+
+        audioSource.PlayOneShot(damageSound);
     }
     
     // Fire a bullet towards the mouse

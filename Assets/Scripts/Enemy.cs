@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
         {
             hitObject.OnHit(ramDamage);
 
-            Vector2 collisionDirection = player.Position - body.position;
+            Vector2 collisionDirection = hitObject.Position - body.position;
             collisionDirection.Normalize();
             body.AddForce(2 * ramKnockback * -collisionDirection);
             hitObject.body.AddForce(ramKnockback * collisionDirection);
