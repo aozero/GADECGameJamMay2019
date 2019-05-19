@@ -108,15 +108,21 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController hitObject = collision.gameObject.GetComponent<PlayerController>();
+        // Ignore collision if it is with a zone
+        if (collision.gameObject.layer == 8)
+        {
+            return;
+        }
 
+        Vector2 collisionDirection = collision.ClosestPoint(body.position) - body.position;
+        collisionDirection.Normalize();
+        body.velocity = new Vector2(0, 0);
+        body.AddForce(ramKnockback * -collisionDirection);
+
+        PlayerController hitObject = collision.gameObject.GetComponent<PlayerController>();
         if (hitObject != null)
         {
             hitObject.OnHit(ramDamage);
-
-            Vector2 collisionDirection = hitObject.Position - body.position;
-            collisionDirection.Normalize();
-            body.AddForce(2 * ramKnockback * -collisionDirection);
             hitObject.body.AddForce(ramKnockback * collisionDirection);
         }
     }
