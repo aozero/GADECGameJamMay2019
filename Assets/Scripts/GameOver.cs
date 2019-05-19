@@ -17,7 +17,7 @@ public class GameOver : MonoBehaviour
         }
     }
     
-    void Awake() {
+    void Start() {
         gameOverText.text = Strings.str[Globals.lang, 6];
         gameOverReason.text = Strings.str[Globals.lang, 7];    
     }
