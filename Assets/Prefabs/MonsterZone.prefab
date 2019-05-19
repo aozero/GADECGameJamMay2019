@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6549643187827267716}
   - component: {fileID: 6549643187827267717}
   - component: {fileID: 6549643187827267718}
+  - component: {fileID: 1192693514258222292}
   m_Layer: 8
   m_Name: MonsterZone
   m_TagString: Untagged
@@ -76,3 +77,23 @@ MonoBehaviour:
     type: 3}
   sirenPrefab: {fileID: -4443955842852328106, guid: 981ae56d28e33b342985281518cd071d,
     type: 3}
+  zoneDifficulty: 0
+--- !u!95 &1192693514258222292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6549643187827267719}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b14a4c4293334b4bba2f87a6dfe014b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
