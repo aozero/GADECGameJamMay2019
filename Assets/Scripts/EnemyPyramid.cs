@@ -16,11 +16,20 @@ public class EnemyPyramid : Enemy
 
         float rotation = Vector2.SignedAngle(transform.up, targetDelta);
 
-        int spriteIndex = (int)Mathf.Abs(Mathf.Round(rotation / 90f));
+        int spriteIndex = (int)Mathf.Abs(Mathf.Round(rotation / 45f));
         switch (spriteIndex)
         {
             case 1:
+                spriteRenderer.sprite = spriteNW;
+                break;
+            case 2:
                 spriteRenderer.sprite = spriteW;
+                break;
+            case 3:
+                spriteRenderer.sprite = spriteSW;
+                break;
+            case 4:
+                spriteRenderer.sprite = spriteS;
                 break;
             default:
                 spriteRenderer.sprite = spriteN;
