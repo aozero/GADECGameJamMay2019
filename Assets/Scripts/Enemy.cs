@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deactivate();
+
         player = Globals.player;
 
         // Set health to max
@@ -32,11 +34,21 @@ public class Enemy : MonoBehaviour
         //Get and store a reference to the Rigidbody2D component so that we can access it.
         body = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
+    public void activate()
+    {
         if (timeBetweenShots > 0)
         {
             Invoke("Shoot", timeBetweenShots);
         }
+
+        enabled = true;
+    }
+
+    public void deactivate()
+    {
+        enabled = false;
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -117,7 +129,10 @@ public class Enemy : MonoBehaviour
         BulletEnemy newBullet = Instantiate(bulletEnemy, body.position, Quaternion.identity);
         newBullet.Direction = bulletDirection;
 
-        Invoke("Shoot", timeBetweenShots);
+        if (enabled)
+        {
+            Invoke("Shoot", timeBetweenShots);
+        }
     }
 
     public void OnHit(int damage)
@@ -125,6 +140,14 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
 
         if (currentHealth <= 0) {
+            Destroy(gameObject);
+        }
+    }
+
+    public void DestroyIfInactive()
+    {
+        if (!enabled)
+        {
             Destroy(gameObject);
         }
     }

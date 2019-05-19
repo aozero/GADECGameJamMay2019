@@ -243,6 +243,9 @@ private void OnTriggerEnter2D(Collider2D collision)
             // Spawn a new wreck
             Globals.wreckSpawner.SpawnWreck();
 
+            // Respawn monsters if they are inactive
+            Globals.monsterZoneManager.RespawnMonsters();
+
             return true;
         } 
 
