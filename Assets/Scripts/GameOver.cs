@@ -1,0 +1,25 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameOverFuel : MonoBehaviour
+{
+    public Text gameOverText;
+    public Text gameOverReason;
+    
+    
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.anyKey)
+        {
+            Application.Quit();
+        }
+    }
+    
+    void Start() {
+        gameOverText.text = Strings.str[Globals.lang, 6];
+        gameOverReason.text = Strings.str[Globals.lang, 7];    
+    }
+}
