@@ -137,6 +137,7 @@ MonoBehaviour:
   spriteSW: {fileID: 21300000, guid: 23c1efb9ffcf2344299df227d47c65e3, type: 3}
   movingSound: {fileID: 2598414960837213588}
   idleSound: {fileID: 1087741623755493110}
+  currentZone: 0
   objectiveSet: 0
   body: {fileID: 0}
 --- !u!61 &1645154015636709571
@@ -372,7 +373,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d72892a0728715e49b9215ddbb72f5ba, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f983af5aa6f99e74cb32989691359e4c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -499,7 +500,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 99f43495df6e16e4c9e2f572e118e7a9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1352eeeea2905084db8a3b19a16bf0a5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
