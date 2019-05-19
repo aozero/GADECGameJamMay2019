@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public int maxBoost = 200;
     public Slider boostSlider;
 
+    public UISurvivors survivorsUI;
+
     public float forwardSpeed;    // How fast the player can move forward
     public float turnSpeed;       // How fast the player can turn
     public BulletPlayer bulletPlayer;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private int currentHealth;
     private int currentFuel;
     private int currentBoost;
+    private bool survivorsOnBoard = false;
     
     private float waitTime = 2.0f;
     private float timer = 0.0f;
@@ -193,5 +196,34 @@ private void OnTriggerEnter2D(Collider2D collision)
 
         BulletPlayer newBullet = Instantiate(bulletPlayer, body.position, Quaternion.identity);
         newBullet.Direction = bulletDirection;
+    }
+
+    // Pick up survivors from wreck
+    public void RetrieveSurvivors()
+    {
+        survivorsOnBoard = true;
+        survivorsUI.SetSurvivors(survivorsOnBoard);
+    }
+
+    // Bring survivors to port
+    // Returns true if player was carrying survivor
+    // else false
+    public bool DepositSurvivors()
+    {
+        if (survivorsOnBoard)
+        {
+            // We not longer have survivors on board
+            survivorsOnBoard = false;
+            survivorsUI.SetSurvivors(survivorsOnBoard);
+
+            // Replenish supplies
+            currentHealth = maxHealth;
+            currentFuel = maxFuel;
+            currentBoost = maxBoost;
+
+            return true;
+        } 
+
+        return false;
     }
 }
