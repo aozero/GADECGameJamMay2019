@@ -188,32 +188,6 @@ public class PlayerController : MonoBehaviour
         spriteRenderer.flipX = rotation < 0;
     }
 
-    // Bounce away from collision
-    // Some weird bugs with this and its not that important so I gave up
-    /*
-private void OnTriggerEnter2D(Collider2D collision)
-{
-    
-
-
-    GameObject hitObject = collision.gameObject;
-
-    if (hitObject != null)
-    {
-
-
-        //Vector3 collisionDirection = hitObject.transform.position - transform.position;
-        //collisionDirection.Normalize();
-        //body.AddForce(2 * ramKnockback * -collisionDirection);
-
-
-
-        //hitObject.body.AddForce(ramKnockback * collisionDirection);
-    }
-    
-    }
-    */
-
     public void OnHit(int damage)
     {
         currentHealth -= damage;

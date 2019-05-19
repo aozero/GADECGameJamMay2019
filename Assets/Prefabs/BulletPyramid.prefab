@@ -30,6 +30,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletPyramid
       objectReference: {fileID: 0}
+    - target: {fileID: 3827598948217024222, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -1967852718032610672, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
         type: 3}
       propertyPath: m_audioClip
