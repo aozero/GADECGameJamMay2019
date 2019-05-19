@@ -10,6 +10,8 @@ public class MusicPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        musicSource = GetComponent<AudioSource>();
+
         musicSource.loop = true;
         musicSource.clip = homeMusic;
         musicSource.Play();

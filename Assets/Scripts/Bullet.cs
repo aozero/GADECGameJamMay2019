@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
     public int duration = 5;
     public int damage = 1;
 
+    public AudioSource audioSource;
+    public AudioClip fireSound;
+
     private Vector2 direction; // Direction bullet is going
 
     public Vector2 Direction
@@ -27,6 +30,9 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(fireSound);
+
         // Bullet will be destroyed after duration seconds
         Destroy(gameObject, duration);
     }
