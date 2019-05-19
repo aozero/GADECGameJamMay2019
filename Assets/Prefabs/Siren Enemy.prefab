@@ -64,12 +64,12 @@ PrefabInstance:
     - target: {fileID: 7334315692790222180, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.8203125
+      value: 3.90625
       objectReference: {fileID: 0}
     - target: {fileID: 7334315692790222180, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.03125
+      value: 3.90625
       objectReference: {fileID: 0}
     - target: {fileID: 7334315692790222180, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
@@ -89,13 +89,13 @@ PrefabInstance:
     - target: {fileID: 7334315692790222180, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.05
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7334315692790222178, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a59fcef633d449349a754b1000d58c1c,
+      objectReference: {fileID: 21300000, guid: 3a9b3c0f0e8fdd541ac29aed052ffc35,
         type: 3}
     - target: {fileID: 7334315692790222178, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
@@ -217,13 +217,13 @@ PrefabInstance:
         type: 3}
       propertyPath: spriteN
       value: 
-      objectReference: {fileID: 21300000, guid: a59fcef633d449349a754b1000d58c1c,
+      objectReference: {fileID: 21300000, guid: ba099688bd71e00438bf75711bb4fd49,
         type: 3}
     - target: {fileID: 7334315692790222181, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
       propertyPath: spriteW
       value: 
-      objectReference: {fileID: 21300000, guid: a59fcef633d449349a754b1000d58c1c,
+      objectReference: {fileID: 21300000, guid: 56a78e0af7c2adc439e3aa9410ddc52e,
         type: 3}
     - target: {fileID: 7334315692790222181, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
         type: 3}
@@ -240,6 +240,24 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7334315692790222181, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
+        type: 3}
+      propertyPath: spriteNW
+      value: 
+      objectReference: {fileID: 21300000, guid: dc2fd4368f61e744f85ac6dc93f71891,
+        type: 3}
+    - target: {fileID: 7334315692790222181, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
+        type: 3}
+      propertyPath: spriteSW
+      value: 
+      objectReference: {fileID: 21300000, guid: eb886b5533b25bf4b8e2511f9c3ca8a6,
+        type: 3}
+    - target: {fileID: 7334315692790222181, guid: 539f3bdc2d4c54f4ca9d709b79bde513,
+        type: 3}
+      propertyPath: spriteS
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a9b3c0f0e8fdd541ac29aed052ffc35,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 539f3bdc2d4c54f4ca9d709b79bde513, type: 3}
 --- !u!1 &3715893399857731668 stripped
