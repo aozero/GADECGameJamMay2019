@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public Sprite spriteSW;
     private SpriteRenderer spriteRenderer;
 
+    public AudioSource movingSound;
+    public AudioSource idleSound;
+
     private int currentHealth;
     private int currentFuel;
     private int currentBoost;
@@ -132,6 +135,22 @@ public class PlayerController : MonoBehaviour
 
         // Add force to move the player forward
         body.AddForce(transform.up * moveVertical * forwardSpeed);
+
+
+        if (moveHorizontal == 0 & moveVertical == 0) {
+            if (movingSound.isPlaying)
+            {
+                movingSound.Stop();
+                idleSound.Play();
+            }
+        } else
+        {
+            if (!movingSound.isPlaying)
+            {
+                idleSound.Stop();
+                movingSound.Play();
+            }
+        }
     }
 
     // Change ship sprite based on ship rotation
