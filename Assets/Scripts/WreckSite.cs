@@ -43,6 +43,8 @@ public class WreckSite : MonoBehaviour
                 audioSource.PlayOneShot(pickupSound);
 
                 survivorsWaiting = false;
+
+                Destroy(gameObject);
             }
         }
     }
