@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
     
     private float waitTime = 2.0f;
     private float timer = 0.0f;
+    
+    public Vector3 objectiveLocation; 
+    private GameObject pointerHolder;
 
     private AudioSource audioSource;
     public Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
@@ -98,7 +101,6 @@ public class PlayerController : MonoBehaviour
             currentFuel -= 1;
             fuelSlider.value = currentFuel;
         }
-        
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -203,6 +205,8 @@ private void OnTriggerEnter2D(Collider2D collision)
     {
         survivorsOnBoard = true;
         survivorsUI.SetSurvivors(survivorsOnBoard);
+
+        objectiveLocation = Globals.homePort.transform.position;
     }
 
     // Bring survivors to port

@@ -16,6 +16,8 @@ public class WreckSite : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+
+        Globals.player.objectiveLocation = transform.position;
     }
 
     // Update is called once per frame
