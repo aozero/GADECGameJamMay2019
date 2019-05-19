@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -105,6 +106,7 @@ public class PlayerController : MonoBehaviour
             if (currentFuel <= 0)
             {
                 // lose the game
+                SceneManager.LoadScene("GameOverFuel", LoadSceneMode.Single);
             }
         }
 
