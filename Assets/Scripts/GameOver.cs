@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverFuel : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
     public Text gameOverText;
     public Text gameOverReason;
-    
     
     // Update is called once per frame
     void Update()
@@ -18,7 +17,7 @@ public class GameOverFuel : MonoBehaviour
         }
     }
     
-    void Start() {
+    void Awake() {
         gameOverText.text = Strings.str[Globals.lang, 6];
         gameOverReason.text = Strings.str[Globals.lang, 7];    
     }

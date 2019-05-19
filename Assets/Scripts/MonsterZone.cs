@@ -10,6 +10,8 @@ public class MonsterZone : MonoBehaviour
     public EnemyPyramid pyramidPrefab;
     public EnemySiren sirenPrefab;
 
+    public int zoneDifficulty;
+
     private BoxCollider2D box;
     private Vector2 xRange;
     private Vector2 yRange; 
@@ -53,6 +55,15 @@ public class MonsterZone : MonoBehaviour
         float y = Random.Range(box.bounds.min.y, box.bounds.max.y);
 
         return new Vector2(x, y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController hitObject = collision.gameObject.GetComponent<PlayerController>();
+        if (hitObject != null)
+        {
+            hitObject.currentZone = zoneDifficulty;
+        }
     }
 
 }
