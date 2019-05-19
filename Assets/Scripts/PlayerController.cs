@@ -31,11 +31,13 @@ public class PlayerController : MonoBehaviour
     public AudioSource movingSound;
     public AudioSource idleSound;
 
+    public int currentZone;
+
     private int currentHealth;
     private int currentFuel;
     private int currentBoost;
     private bool survivorsOnBoard = false;
-    
+
     private float waitTime = 1.0f;
     private float timer = 0.0f;
 
