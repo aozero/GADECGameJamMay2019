@@ -108,8 +108,8 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Ignore collision if it is with a zone
-        if (collision.gameObject.layer == 8)
+        // Ignore collision if it is with a zone or enemy bullet
+        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 10)
         {
             return;
         }
