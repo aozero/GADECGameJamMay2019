@@ -10,10 +10,6 @@ public class UISurvivors : MonoBehaviour
     public float emptyAlpha;
     public float fullAlpha;
 
-    private string blank = "";
-    private string getSurvivors = "Rescue the survivors!";
-    private string returnHome = "Survivors onboard. Return home!";
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +36,14 @@ public class UISurvivors : MonoBehaviour
         {
             if (gotSurvivors)
             {
-                objectiveText.text = returnHome;
+                objectiveText.text = Strings.str[Globals.lang,5];
             } else
             {
-                objectiveText.text = getSurvivors;
+                objectiveText.text = Strings.str[Globals.lang,4];
             }
         } else
         {
-            objectiveText.text = blank;
+            objectiveText.text = Strings.str[Globals.lang,3];
         }
     }
 }
