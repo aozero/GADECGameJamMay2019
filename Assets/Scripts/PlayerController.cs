@@ -205,6 +205,8 @@ private void OnTriggerEnter2D(Collider2D collision)
     {
         objectiveLocation = location;
         objectiveSet = true;
+
+        survivorsUI.SetSurvivors(survivorsOnBoard, objectiveSet);
     }
 
     public Vector3 GetObjective()
@@ -216,7 +218,7 @@ private void OnTriggerEnter2D(Collider2D collision)
     public void RetrieveSurvivors()
     {
         survivorsOnBoard = true;
-        survivorsUI.SetSurvivors(survivorsOnBoard);
+        survivorsUI.SetSurvivors(survivorsOnBoard, objectiveSet);
 
         SetObjective(Globals.homePort.transform.position);
     }
@@ -230,7 +232,6 @@ private void OnTriggerEnter2D(Collider2D collision)
         {
             // We not longer have survivors on board
             survivorsOnBoard = false;
-            survivorsUI.SetSurvivors(survivorsOnBoard);
 
             // Replenish supplies
             currentHealth = maxHealth;
@@ -239,6 +240,7 @@ private void OnTriggerEnter2D(Collider2D collision)
 
             // No objective for now
             objectiveSet = false;
+            survivorsUI.SetSurvivors(survivorsOnBoard, objectiveSet);
 
             // Spawn a new wreck
             Globals.wreckSpawner.SpawnWreck();

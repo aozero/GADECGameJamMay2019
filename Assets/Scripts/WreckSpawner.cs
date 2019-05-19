@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WreckSpawner : MonoBehaviour
 {
+    public float timeBetweenAudioAndWreck;
+
     // Min and max distances that wrecks can spawn
     // Used for both X/Y and  -/+
     public float minDistance; 
@@ -14,15 +16,26 @@ public class WreckSpawner : MonoBehaviour
 
     public WreckSite wreckPrefab;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         Globals.wreckSpawner = this;
 
+        audioSource = GetComponent<AudioSource>();
+
         SpawnWreck();
     }
 
     public void SpawnWreck()
+    {
+        audioSource.Play();
+
+        Invoke("InstantiateWreck", timeBetweenAudioAndWreck);
+    }
+
+    void InstantiateWreck()
     {
         // 0 is negative, 1 is positive
         int xDirection = Random.Range(0, 2);
