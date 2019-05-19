@@ -12,7 +12,7 @@ public class BulletPlayer : Bullet
         {
             hitObject.OnHit(damage);
 
-            Destroy(gameObject);
+            PlaySoundAndDestroy();
         }
     }
 }

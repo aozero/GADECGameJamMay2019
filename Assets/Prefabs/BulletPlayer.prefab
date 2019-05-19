@@ -67,5 +67,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4447202669695046582, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
+        type: 3}
+      propertyPath: fireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 73ef4df78e568e24890a9bed913d7140, type: 3}
+    - target: {fileID: -4447202669695046582, guid: 3f5ebf47945a912429d3e3fb6a623bc6,
+        type: 3}
+      propertyPath: hitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 68a75b784426b9648ae795c4aeaeeea8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f5ebf47945a912429d3e3fb6a623bc6, type: 3}

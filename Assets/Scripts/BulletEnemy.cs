@@ -12,7 +12,7 @@ public class BulletEnemy : Bullet
         {
             hitObject.OnHit(damage);
 
-            Destroy(gameObject);
+            PlaySoundAndDestroy();
         }
     }
 }

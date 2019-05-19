@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip fireSound;
+    public AudioClip hitSound;
 
     private Vector2 direction; // Direction bullet is going
 
@@ -34,13 +35,16 @@ public class Bullet : MonoBehaviour
         audioSource.PlayOneShot(fireSound);
 
         // Bullet will be destroyed after duration seconds
+        Invoke("PlaySoundAndDestroy", duration);
         Destroy(gameObject, duration);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaySoundAndDestroy()
     {
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        audioSource.PlayOneShot(hitSound);
 
+        Destroy(gameObject, 2);
     }
-
 }
