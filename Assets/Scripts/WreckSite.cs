@@ -43,7 +43,6 @@ public class WreckSite : MonoBehaviour
                 audioSource.PlayOneShot(pickupSound);
 
                 survivorsWaiting = false;
-                spriteRenderer.color = Color.black;
             }
         }
     }
