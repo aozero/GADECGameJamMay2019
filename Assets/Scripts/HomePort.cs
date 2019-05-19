@@ -11,6 +11,8 @@ public class HomePort : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Globals.homePort = this;
+
         audioSource = GetComponent<AudioSource>();
     }
 

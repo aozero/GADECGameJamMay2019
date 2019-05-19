@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     private float waitTime = 2.0f;
     private float timer = 0.0f;
 
+    public bool objectiveSet = false;
+    private Vector3 objectiveLocation; 
+    private GameObject pointerHolder;
+
     private AudioSource audioSource;
     public Rigidbody2D body;       //Store a reference to the Rigidbody2D component required to use 2D Physics.
 
@@ -98,7 +102,6 @@ public class PlayerController : MonoBehaviour
             currentFuel -= 1;
             fuelSlider.value = currentFuel;
         }
-        
     }
 
     //FixedUpdate is called at a fixed interval and is independent of frame rate. Put physics code here.
@@ -198,11 +201,24 @@ private void OnTriggerEnter2D(Collider2D collision)
         newBullet.Direction = bulletDirection;
     }
 
+    public void SetObjective(Vector3 location)
+    {
+        objectiveLocation = location;
+        objectiveSet = true;
+    }
+
+    public Vector3 GetObjective()
+    {
+        return objectiveLocation;
+    }
+
     // Pick up survivors from wreck
     public void RetrieveSurvivors()
     {
         survivorsOnBoard = true;
         survivorsUI.SetSurvivors(survivorsOnBoard);
+
+        SetObjective(Globals.homePort.transform.position);
     }
 
     // Bring survivors to port
@@ -220,6 +236,9 @@ private void OnTriggerEnter2D(Collider2D collision)
             currentHealth = maxHealth;
             currentFuel = maxFuel;
             currentBoost = maxBoost;
+
+            // No objective for now
+            objectiveSet = false;
 
             return true;
         } 
