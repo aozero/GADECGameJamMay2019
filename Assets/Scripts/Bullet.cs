@@ -35,7 +35,6 @@ public class Bullet : MonoBehaviour
         audioSource.PlayOneShot(fireSound);
 
         // Bullet will be destroyed after duration seconds
-        Invoke("PlaySoundAndDestroy", duration);
         Destroy(gameObject, duration);
     }
 
