@@ -4,7 +4,8 @@ You play as the operator of a boat trapped in the alternate reality of the Bermu
 Radio Rescue Bermuda was made in Unity for MayDay Game Jam hosted by MacEwan University's GADEC. The theme was Mayday and we had 48 hours to complete our game.    
 
 ### Controls
-Movement: WASD   
+Throttle: W/S    
+Steet: A/D    
 Shoot: Left Mouse Button   
 Interact: Move Player Sprite over Object   
 
