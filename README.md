@@ -5,7 +5,7 @@ Radio Rescue Bermuda was made in Unity for MayDay Game Jam hosted by MacEwan Uni
 
 ### Controls
 Throttle: W/S    
-Steet: A/D    
+Steer: A/D    
 Shoot: Left Mouse Button   
 Interact: Move Player Sprite over Object   
 
