@@ -2,6 +2,7 @@
 You play as the operator of a boat trapped in the alternate reality of the Bermuda Triangle where all the lost ships and planes go. Your job is to rescue as many survivors as you can while avoiding the outlandish sea creatures and strange objects that attack at every opportunity. How long can you last?   
 
 Radio Rescue Bermuda was made in Unity for MayDay Game Jam hosted by MacEwan University's GADEC. The theme was Mayday and we had 48 hours to complete our game.    
+itch.io page: https://ubiquitous-mayonnaise.itch.io/radio-rescue-bermuda
 
 ### Controls
 Throttle: W/S    
